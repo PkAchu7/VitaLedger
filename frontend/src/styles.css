@@ -1,0 +1,472 @@
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+      .vl-root {
+        /* Brand color is a clinical teal — red is reserved for blood group,
+           allergy alerts, and danger/emergency actions only. */
+        --white: #ffffff;
+        --paper: #fbfbfa;
+        --brand-50: #eaf3f3;
+        --brand-100: #d3e7e6;
+        --brand-400: #3e8c8f;
+        --brand-500: #2e6e72;
+        --brand-600: #235356;
+        --ink: #262424;
+        --ink-soft: #706866;
+        --line: #e7e3e1;
+        --green: #3f8f5f;
+        --green-bg: #eaf6ee;
+        --amber: #b9761f;
+        --amber-bg: #fbf1e2;
+        --danger: #b7362e;
+        --danger-bg: #fbeae8;
+        font-family: 'Inter', -apple-system, sans-serif;
+        color: var(--ink);
+        min-height: 100vh;
+        background: var(--paper);
+      }
+      .vl-root h1, .vl-root h2, .vl-root h3, .vl-root h4 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .vl-root * { box-sizing: border-box; }
+      .vl-muted { color: var(--ink-soft); font-size: 13.5px; }
+
+      /* ---------- LOGIN ---------- */
+      .vl-login {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        min-height: 100vh;
+      }
+      .vl-login__brand {
+        background: linear-gradient(160deg, var(--brand-500), var(--brand-600));
+        color: #fff;
+        padding: 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 22px;
+      }
+      .vl-brand-mark {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 20px;
+      }
+      .vl-login__brand h1 {
+        font-size: 34px;
+        line-height: 1.25;
+        max-width: 440px;
+        font-weight: 600;
+      }
+      .vl-login__brand p {
+        max-width: 420px;
+        color: #cfe7e6;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+      .vl-login__points {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .vl-login__points li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #fff;
+      }
+      .vl-login__panel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        animation: vlFadeUp 0.5s ease both;
+      }
+      @keyframes vlFadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .vl-login__card {
+        width: 100%;
+        max-width: 400px;
+      }
+      .vl-login__card h2 { font-size: 22px; margin-bottom: 6px; }
+      .vl-role-toggle {
+        display: inline-flex;
+        background: var(--brand-50);
+        border-radius: 10px;
+        padding: 4px;
+        margin-bottom: 22px;
+        gap: 4px;
+      }
+      .vl-role-toggle--inline { margin-bottom: 0; }
+      .vl-role-toggle--quad {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+      }
+      .vl-role-toggle button {
+        border: none;
+        background: transparent;
+        padding: 8px 14px;
+        border-radius: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .vl-role-toggle button.is-active {
+        background: var(--white);
+        color: var(--brand-600);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      }
+      .vl-form { display: flex; flex-direction: column; gap: 16px; margin-top: 18px; }
+      .vl-form--wide { max-width: 460px; padding: 24px; }
+      .vl-form label {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .vl-form input, .vl-form select {
+        border: 1.5px solid var(--line);
+        border-radius: 9px;
+        padding: 11px 13px;
+        font-size: 14.5px;
+        font-family: inherit;
+        color: var(--ink);
+        background: var(--white);
+      }
+      .vl-form input:focus, .vl-form select:focus {
+        outline: none;
+        border-color: var(--brand-400);
+      }
+      .vl-wallet-input { display: flex; gap: 8px; }
+      .vl-wallet-input input { flex: 1; }
+      .vl-wallet-input button {
+        border: 1.5px solid var(--brand-400);
+        background: var(--brand-50);
+        color: var(--brand-600);
+        border-radius: 9px;
+        padding: 0 14px;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .vl-error {
+        background: var(--danger-bg);
+        color: var(--danger);
+        border: 1px solid #f4c7c2;
+        padding: 9px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+      }
+      .vl-hint {
+        margin-top: 18px;
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+
+      /* ---------- BUTTONS ---------- */
+      .vl-btn {
+        border: none;
+        border-radius: 9px;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: inherit;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+      }
+      .vl-btn--block { width: 100%; justify-content: center; padding: 12px; }
+      .vl-btn--primary { background: var(--brand-500); color: #fff; }
+      .vl-btn--primary:hover { background: var(--brand-600); }
+      .vl-btn--ghost { background: var(--brand-50); color: var(--brand-600); }
+      .vl-btn--danger { background: var(--danger-bg); color: var(--danger); border: 1px solid #f4c7c2; }
+      .vl-btn--danger:hover { background: #f8dbd7; }
+      .vl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+      /* ---------- SHELL / SIDEBAR ---------- */
+      .vl-shell { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+      .vl-sidebar {
+        background: var(--white);
+        border-right: 1px solid var(--line);
+        padding: 22px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .vl-sidebar__brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-family: 'Fraunces', serif;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 0 6px;
+      }
+      .vl-sidebar__who {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--brand-50);
+        border-radius: 11px;
+        padding: 10px 12px;
+      }
+      .vl-avatar {
+        width: 34px; height: 34px;
+        border-radius: 50%;
+        background: var(--brand-500);
+        color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .vl-avatar--sm { width: 32px; height: 32px; font-size: 13px; }
+      .vl-sidebar__name { font-weight: 700; font-size: 13.5px; }
+      .vl-sidebar__sub { font-size: 11.5px; color: var(--ink-soft); }
+      .vl-nav { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+      .vl-nav button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        background: transparent;
+        padding: 10px 12px;
+        border-radius: 9px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        cursor: pointer;
+        text-align: left;
+      }
+      .vl-nav button.is-active { background: var(--brand-50); color: var(--brand-600); }
+      .vl-nav button:hover:not(.is-active) { background: #f7f5f4; }
+      .vl-nav__badge {
+        margin-left: auto;
+        background: var(--brand-500);
+        color: #fff;
+        font-size: 10.5px;
+        border-radius: 20px;
+        padding: 1px 7px;
+        font-weight: 700;
+      }
+      .vl-sidebar__footer { display: flex; flex-direction: column; gap: 10px; }
+      .vl-logout {
+        display: flex; align-items: center; gap: 8px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        padding: 9px 12px;
+        border-radius: 9px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        cursor: pointer;
+      }
+      .vl-vitals { display: flex; flex-direction: column; gap: 5px; font-size: 11.5px; color: var(--ink-soft); padding: 0 2px; }
+      .vl-vitals span { display: flex; align-items: center; gap: 6px; }
+      .vl-vitals__allergy { color: var(--danger); }
+      .vl-pin-setting {
+        display: flex; align-items: center; gap: 7px;
+        border: 1px solid var(--line);
+        background: var(--white);
+        padding: 8px 10px;
+        border-radius: 9px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-soft);
+        cursor: pointer;
+      }
+      .vl-pin-setting--editing { display: flex; gap: 6px; padding: 6px; }
+      .vl-pin-setting--editing input {
+        width: 90px; border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; font-size: 12px;
+      }
+      .vl-pin-setting--editing button {
+        border: none; background: var(--brand-500); color: #fff; border-radius: 7px; font-size: 12px; padding: 0 10px; cursor: pointer;
+      }
+
+      /* ---------- MAIN ---------- */
+      .vl-main { padding: 34px 40px; position: relative; max-width: 980px; }
+      .vl-page-header { margin-bottom: 24px; }
+      .vl-page-header h2 { font-size: 24px; margin-bottom: 6px; }
+      .vl-page-header p { color: var(--ink-soft); font-size: 14px; max-width: 580px; line-height: 1.55; margin: 0; }
+
+      .vl-card {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+
+      .vl-record-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .vl-record-grid--modal { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); margin: 18px 0; }
+      .vl-record-card { display: flex; gap: 12px; padding: 16px; }
+      .vl-record-card__icon {
+        width: 38px; height: 38px; border-radius: 9px;
+        background: var(--brand-50); color: var(--brand-600);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .vl-record-card__body h4 { font-size: 14.5px; margin-bottom: 3px; }
+      .vl-hash-row {
+        display: flex; align-items: center; gap: 6px;
+        font-size: 11px; color: var(--ink-soft);
+        margin-top: 5px;
+        font-family: monospace;
+      }
+
+      .vl-list { display: flex; flex-direction: column; gap: 12px; }
+      .vl-doctor-row { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; gap: 12px; flex-wrap: wrap; }
+      .vl-doctor-row__info { display: flex; align-items: center; gap: 12px; }
+      .vl-doctor-row__info h4 { font-size: 15px; margin-bottom: 2px; }
+      .vl-doctor-row__actions { display: flex; align-items: center; gap: 8px; }
+
+      .vl-ca-badge {
+        display: inline-flex; align-items: center; gap: 5px;
+        background: var(--green-bg); color: var(--green);
+        font-size: 11px; font-weight: 700;
+        padding: 3px 9px; border-radius: 20px;
+        margin-top: 6px;
+      }
+      .vl-pill {
+        display: inline-flex; align-items: center; gap: 5px;
+        font-size: 11.5px; font-weight: 700;
+        padding: 4px 10px; border-radius: 20px;
+        margin-top: 6px;
+      }
+      .vl-pill--green { background: var(--green-bg); color: var(--green); }
+      .vl-pill--amber { background: var(--amber-bg); color: var(--amber); }
+
+      .vl-search-bar {
+        display: flex; align-items: center; gap: 10px;
+        background: var(--white); border: 1.5px solid var(--line);
+        border-radius: 10px; padding: 10px 14px; margin-bottom: 18px;
+        max-width: 420px;
+        color: var(--ink-soft);
+      }
+      .vl-search-bar input { border: none; outline: none; flex: 1; font-size: 14px; font-family: inherit; }
+
+      .vl-file-picker { display: flex; align-items: center; gap: 12px; }
+      .vl-file-picker button {
+        display: flex; align-items: center; gap: 7px;
+        border: 1.5px dashed var(--brand-400); background: var(--brand-50);
+        color: var(--brand-600); border-radius: 9px; padding: 9px 14px;
+        font-size: 13px; font-weight: 600; cursor: pointer;
+      }
+      .vl-file-picker span { font-size: 13px; color: var(--ink-soft); }
+
+      .vl-empty {
+        text-align: center; padding: 60px 20px; color: var(--ink-soft);
+        display: flex; flex-direction: column; align-items: center; gap: 10px;
+      }
+      .vl-empty h3 { color: var(--ink); font-size: 16px; }
+      .vl-empty p { font-size: 13.5px; max-width: 320px; margin: 0; }
+
+      .vl-toast {
+        position: absolute; top: 20px; right: 40px;
+        background: var(--ink); color: #fff;
+        padding: 10px 18px; border-radius: 9px;
+        font-size: 13.5px; font-weight: 600;
+        animation: vlFadeUp 0.3s ease both;
+        z-index: 5;
+      }
+
+      /* ---------- STAT CARDS (admin overview) ---------- */
+      .vl-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+      .vl-stat-card { padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+      .vl-stat-card__icon {
+        width: 32px; height: 32px; border-radius: 8px;
+        background: var(--brand-50); color: var(--brand-600);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .vl-stat-card__value { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; }
+      .vl-stat-card__label { font-size: 12.5px; color: var(--ink-soft); }
+
+      /* ---------- AUDIT LOG ---------- */
+      .vl-audit-list { display: flex; flex-direction: column; }
+      .vl-audit-row {
+        display: flex; gap: 12px; padding: 14px 4px;
+        border-bottom: 1px solid var(--line);
+      }
+      .vl-audit-row:last-child { border-bottom: none; }
+      .vl-audit-row__icon {
+        width: 28px; height: 28px; border-radius: 50%;
+        background: var(--brand-50); color: var(--brand-600);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; margin-top: 1px;
+      }
+      .vl-audit-row__line { font-size: 13.5px; margin-bottom: 3px; }
+
+      /* ---------- MODALS ---------- */
+      .vl-modal-overlay {
+        position: fixed; inset: 0; background: rgba(38,36,36,0.45);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 20; padding: 20px;
+      }
+      .vl-modal {
+        background: var(--white); border-radius: 16px;
+        padding: 28px; max-width: 480px; width: 100%;
+        max-height: 85vh; overflow-y: auto;
+        animation: vlPop 0.22s ease both;
+      }
+      @keyframes vlPop {
+        from { opacity: 0; transform: scale(0.96) translateY(6px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      .vl-modal--danger { border-top: 4px solid var(--danger); }
+      .vl-modal h3 { font-size: 19px; margin: 10px 0 6px; }
+      .vl-modal__header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
+      .vl-icon-btn { border: none; background: var(--brand-50); border-radius: 8px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink-soft); }
+      .vl-modal__actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+      .vl-modal__footnote { display: flex; align-items: center; gap: 6px; margin-top: 16px; }
+
+      .vl-alert-banner {
+        display: flex; align-items: center; gap: 10px;
+        background: var(--amber-bg); color: var(--amber);
+        padding: 12px 14px; border-radius: 10px;
+        font-size: 13.5px; margin-top: 14px;
+      }
+      .vl-alert-banner--danger { background: var(--danger-bg); color: var(--danger); }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 860px) {
+        .vl-login { grid-template-columns: 1fr; }
+        .vl-login__brand { padding: 36px; }
+        .vl-shell { grid-template-columns: 1fr; }
+        .vl-sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; }
+        .vl-nav { flex-direction: row; flex-wrap: wrap; }
+        .vl-main { padding: 24px; }
+      }
+
+/* ---------- additions for the connected app ---------- */
+.vl-toast--err { background: var(--danger); }
+.vl-note { background: var(--brand-50); color: var(--brand-600); padding: 12px 14px; border-radius: 10px; font-size: 13px; line-height: 1.5; margin: 14px 0; }
+.vl-section { margin: 26px 0 12px; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .05em; }
+.vl-pill--red { background: var(--danger-bg); color: var(--danger); }
+.vl-center { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; }
+.vl-center > div { max-width: 420px; }
+.vl-form textarea { border: 1.5px solid var(--line); border-radius: 9px; padding: 11px 13px; font-size: 14.5px; font-family: inherit; }
+.vl-inline-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px; }
+.vl-inline-form input { flex: 1; min-width: 200px; border: 1.5px solid var(--line); border-radius: 9px; padding: 10px 13px; font-size: 14px; font-family: inherit; }
